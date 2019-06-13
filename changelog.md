@@ -1,3 +1,9 @@
+# [1.0.1](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/1.0.0) (2019-06-13)
+
+## Chore
+
+* Update AutoMapper to version 8.1.1
+
 # [1.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/1.0.0) (2019-05-16)
 
 ## Intial Release
