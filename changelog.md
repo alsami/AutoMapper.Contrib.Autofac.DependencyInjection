@@ -1,14 +1,24 @@
+# [2.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/2.0.0) (2019-08-12)
+
+## Breaking changes
+
+* `AutoMapper` has completely removed all static-apis. If you still rely on any of them, please check out this [migration-guide](https://docs.automapper.org/en/stable/9.0-Upgrade-Guide.html).
+
+## Chore
+
+* Update `AutoMapper` to version `9.0.0`
+
 # [1.0.1](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/1.0.0) (2019-06-13)
 
 ## Chore
 
-* Update AutoMapper to version 8.1.1
+* Update `AutoMapper` to version `8.1.1`
 
 # [1.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/1.0.0) (2019-05-16)
 
 ## Intial Release
 
-* Allow AutoMapper and it's components to be registered via an extension method for Autofac.
+* Allow `AutoMapper` and it's components to be registered via an extension method for Autofac.
 
 ## Additional Note
 
