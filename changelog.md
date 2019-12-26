@@ -1,3 +1,9 @@
+# [2.0.1](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/2.0.1) (2019-12-26)
+
+## Chore
+
+* Update `Autofac` to version `4.9.4`
+
 # [2.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/2.0.0) (2019-08-12)
 
 ## Breaking changes
