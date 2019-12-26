@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\AutoMapper.Contrib.Autofac.DependencyInjection\AutoMapper.Contrib.Autofac.DependencyInjection.csproj" />
+    <ProjectReference Include="..\AutoMapper.Autofac.Shared\AutoMapper.Autofac.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

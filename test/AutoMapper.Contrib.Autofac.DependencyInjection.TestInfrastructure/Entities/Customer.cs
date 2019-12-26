@@ -4,17 +4,17 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Enti
 {
     public class Customer
     {
+        public Customer(Guid id, string name, string firstName)
+        {
+            Id = id;
+            Name = name;
+            FirstName = firstName;
+        }
+
         public Guid Id { get; }
 
         public string Name { get; }
 
         public string FirstName { get; }
-
-        public Customer(Guid id, string name, string firstName)
-        {
-            this.Id = id;
-            this.Name = name;
-            this.FirstName = firstName;
-        }
     }
 }

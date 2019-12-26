@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\AutoMapper.Contrib.Autofac.DependencyInjection\AutoMapper.Contrib.Autofac.DependencyInjection.csproj" />
+    <ProjectReference Include="..\AutoMapper.Autofac.Shared\AutoMapper.Autofac.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+  </ItemGroup>
+
+
+</Project>

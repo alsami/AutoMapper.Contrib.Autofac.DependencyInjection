@@ -12,21 +12,24 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
         private readonly Assembly[] assembliesToScan;
         private readonly Action<IMapperConfigurationExpression> mappingConfigurationAction;
 
-        public AutoMapperModule(Assembly[] assembliesToScan, Action<IMapperConfigurationExpression> mappingConfigurationAction)
+        public AutoMapperModule(Assembly[] assembliesToScan,
+            Action<IMapperConfigurationExpression> mappingConfigurationAction)
         {
             this.assembliesToScan = assembliesToScan ?? throw new ArgumentNullException(nameof(assembliesToScan));
-            this.mappingConfigurationAction = mappingConfigurationAction ?? throw new ArgumentNullException(nameof(mappingConfigurationAction));
+            this.mappingConfigurationAction = mappingConfigurationAction ??
+                                              throw new ArgumentNullException(nameof(mappingConfigurationAction));
         }
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(this.assembliesToScan)
+            builder.RegisterAssemblyTypes(assembliesToScan)
                 .AssignableTo(typeof(Profile))
                 .As<Profile>()
                 .SingleInstance();
 
             builder
-                .Register(componentContext => new MapperConfiguration(config => this.ConfigurationAction(config, componentContext)))
+                .Register(componentContext =>
+                    new MapperConfiguration(config => ConfigurationAction(config, componentContext)))
                 .AsSelf()
                 .SingleInstance();
 
@@ -39,12 +42,10 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
             };
 
             foreach (var openType in openTypes)
-            {
-                builder.RegisterAssemblyTypes(this.assembliesToScan)
+                builder.RegisterAssemblyTypes(assembliesToScan)
                     .AsClosedTypesOf(openType)
                     .AsImplementedInterfaces()
                     .InstancePerDependency();
-            }
 
             builder
                 .Register(componentContext => componentContext
@@ -57,13 +58,10 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
         private void ConfigurationAction(IMapperConfigurationExpression cfg, IComponentContext componentContext)
         {
             var profiles = componentContext.Resolve<IEnumerable<Profile>>();
-                
-            this.mappingConfigurationAction(cfg);
 
-            foreach (var profile in profiles.Select(t => t.GetType()))
-            {
-                cfg.AddProfile(profile);
-            }
+            mappingConfigurationAction(cfg);
+
+            foreach (var profile in profiles.Select(t => t.GetType())) cfg.AddProfile(profile);
         }
     }
 }

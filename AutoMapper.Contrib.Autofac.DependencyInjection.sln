@@ -24,6 +24,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoMapper.Contrib.Autofac.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoMapper.Contrib.Autofac.DependencyInjection.Tests", "test\AutoMapper.Contrib.Autofac.DependencyInjection.Tests\AutoMapper.Contrib.Autofac.DependencyInjection.Tests.csproj", "{6E420516-09BB-4378-B65F-E02C37CD66D2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{243D0BEA-EA8B-4D7E-B645-BE17B9763896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMapper.Autofac.WebApi", "samples\AutoMapper.Autofac.WebApi\AutoMapper.Autofac.WebApi.csproj", "{67EAE13C-79FF-4E0F-8128-D69322CD2E34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMapper.Autofac.ConsoleApp", "samples\AutoMapper.Autofac.ConsoleApp\AutoMapper.Autofac.ConsoleApp.csproj", "{5EADD7CB-210A-4169-A0DF-C4AE7EDBE731}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMapper.Autofac.Shared", "samples\AutoMapper.Autofac.Shared\AutoMapper.Autofac.Shared.csproj", "{518E0DB7-8C83-41C6-A020-5AF0DFF05F19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +50,18 @@ Global
 		{6E420516-09BB-4378-B65F-E02C37CD66D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E420516-09BB-4378-B65F-E02C37CD66D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E420516-09BB-4378-B65F-E02C37CD66D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67EAE13C-79FF-4E0F-8128-D69322CD2E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EAE13C-79FF-4E0F-8128-D69322CD2E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67EAE13C-79FF-4E0F-8128-D69322CD2E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EAE13C-79FF-4E0F-8128-D69322CD2E34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EADD7CB-210A-4169-A0DF-C4AE7EDBE731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EADD7CB-210A-4169-A0DF-C4AE7EDBE731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EADD7CB-210A-4169-A0DF-C4AE7EDBE731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EADD7CB-210A-4169-A0DF-C4AE7EDBE731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518E0DB7-8C83-41C6-A020-5AF0DFF05F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518E0DB7-8C83-41C6-A020-5AF0DFF05F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518E0DB7-8C83-41C6-A020-5AF0DFF05F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518E0DB7-8C83-41C6-A020-5AF0DFF05F19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +70,9 @@ Global
 		{97B8F460-4AB3-4E6D-99A0-33ADC9E5578A} = {C87C815F-D309-4846-933A-45221E6AC4E2}
 		{3E83A32A-4D29-43CB-899F-B1FAB11EADDD} = {7E905FA2-EB17-4082-92C8-244C3933783F}
 		{6E420516-09BB-4378-B65F-E02C37CD66D2} = {7E905FA2-EB17-4082-92C8-244C3933783F}
+		{67EAE13C-79FF-4E0F-8128-D69322CD2E34} = {243D0BEA-EA8B-4D7E-B645-BE17B9763896}
+		{5EADD7CB-210A-4169-A0DF-C4AE7EDBE731} = {243D0BEA-EA8B-4D7E-B645-BE17B9763896}
+		{518E0DB7-8C83-41C6-A020-5AF0DFF05F19} = {243D0BEA-EA8B-4D7E-B645-BE17B9763896}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C58D8048-52B6-44D8-AF85-8759A9ED42FA}
