@@ -1,3 +1,9 @@
+# [3.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/3.0.0) (2020-01-29)
+
+## Breaking changes
+
+* `Autofac` has been updated to `5.0.0`. The release of `Autofac` contains breaking changes, mostly making the container immutable. You can read more about the changes [here](https://www.paraesthesia.com/archive/2020/01/27/autofac-5-released/).
+
 # [2.0.1](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/2.0.1) (2019-12-26)
 
 ## Chore
