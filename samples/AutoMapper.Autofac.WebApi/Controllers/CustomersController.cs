@@ -26,7 +26,7 @@ namespace AutoMapper.Autofac.WebApi.Controllers
         [HttpGet]
         public IEnumerable<CustomerDto> Load()
         {
-            return mapper.Map<IEnumerable<CustomerDto>>(Customers);
+            return this.mapper.Map<IEnumerable<CustomerDto>>(Customers);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Prof
     {
         public CustomerProfile()
         {
-            CreateMap<Customer, CustomerDto>()
+            this.CreateMap<Customer, CustomerDto>()
                 .ForMember(destination => destination.FullName,
                     options => options.MapFrom<CustomerFullNameResolver>())
                 .ReverseMap()

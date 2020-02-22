@@ -6,8 +6,8 @@ namespace AutoMapper.Autofac.Shared.Dtos
     {
         public CustomerDto(Guid id, string name)
         {
-            Id = id;
-            Name = name;
+            this.Id = id;
+            this.Name = name;
         }
 
         public Guid Id { get; }
@@ -15,7 +15,7 @@ namespace AutoMapper.Autofac.Shared.Dtos
 
         public override string ToString()
         {
-            return $"{Id} - {Name}";
+            return $"{this.Id} - {this.Name}";
         }
     }
 }

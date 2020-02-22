@@ -6,9 +6,9 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Enti
     {
         public Customer(Guid id, string name, string firstName)
         {
-            Id = id;
-            Name = name;
-            FirstName = firstName;
+            this.Id = id;
+            this.Name = name;
+            this.FirstName = firstName;
         }
 
         public Guid Id { get; }

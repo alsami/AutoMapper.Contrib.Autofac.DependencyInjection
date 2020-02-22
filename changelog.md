@@ -1,3 +1,14 @@
+# [3.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/3.1.0) (2020-02-22)
+
+## Features
+
+* Update `Autofac` to version `5.1.1`
+* Expose `MapperConfiguration` as `IConfigurationProvider` as well
+
+## Chore
+
+* Optimize registration process and make sure that `AutoMapper` assemblies are excluded when scanning for types
+
 # [3.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/3.0.0) (2020-01-29)
 
 ## Breaking changes

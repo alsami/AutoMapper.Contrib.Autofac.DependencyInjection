@@ -22,14 +22,19 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(assembliesToScan)
+            var distinctAssemblies = this.assembliesToScan
+                .Where(a => !a.IsDynamic && a.GetName().Name != nameof(AutoMapper))
+                .Distinct()
+                .ToArray();
+            
+            builder.RegisterAssemblyTypes(distinctAssemblies)
                 .AssignableTo(typeof(Profile))
                 .As<Profile>()
                 .SingleInstance();
 
             builder
-                .Register(componentContext =>
-                    new MapperConfiguration(config => ConfigurationAction(config, componentContext)))
+                .Register(componentContext => new MapperConfiguration(config => this.ConfigurationAction(config, componentContext)))
+                .As<IConfigurationProvider>()
                 .AsSelf()
                 .SingleInstance();
 
@@ -42,7 +47,7 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
             };
 
             foreach (var openType in openTypes)
-                builder.RegisterAssemblyTypes(assembliesToScan)
+                builder.RegisterAssemblyTypes(distinctAssemblies)
                     .AsClosedTypesOf(openType)
                     .AsImplementedInterfaces()
                     .InstancePerDependency();
@@ -57,11 +62,12 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
 
         private void ConfigurationAction(IMapperConfigurationExpression cfg, IComponentContext componentContext)
         {
+            this.mappingConfigurationAction.Invoke(cfg);
+            
             var profiles = componentContext.Resolve<IEnumerable<Profile>>();
-
-            mappingConfigurationAction(cfg);
-
-            foreach (var profile in profiles.Select(t => t.GetType())) cfg.AddProfile(profile);
+            
+            foreach (var profile in profiles.Select(profile => profile.GetType())) 
+                cfg.AddProfile(profile);
         }
     }
 }

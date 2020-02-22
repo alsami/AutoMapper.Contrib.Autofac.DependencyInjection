@@ -6,8 +6,8 @@ namespace AutoMapper.Autofac.Shared.Entities
     {
         public Customer(Guid id, string name)
         {
-            Id = id;
-            Name = name;
+            this.Id = id;
+            this.Name = name;
         }
 
         public Guid Id { get; }

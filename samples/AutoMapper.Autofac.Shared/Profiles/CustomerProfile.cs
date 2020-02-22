@@ -8,7 +8,7 @@ namespace AutoMapper.Autofac.Shared.Profiles
     {
         public CustomerProfile()
         {
-            CreateMap<Customer, CustomerDto>()
+            this.CreateMap<Customer, CustomerDto>()
                 .ConvertUsing<CustomerConverter>();
         }
     }
