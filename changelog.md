@@ -1,3 +1,9 @@
+# [3.21.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/3.2.0) (2020-06-11)
+
+## Features
+
+* Update `Autofac` to version `5.2.0`
+
 # [3.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/3.1.0) (2020-02-22)
 
 ## Features
