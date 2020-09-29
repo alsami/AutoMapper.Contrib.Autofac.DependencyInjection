@@ -10,7 +10,7 @@
 
 ## Features
 
-* Wew extensions were added that are more aligned with the `Autofac` syntax for registering dependencies. Please use `RegisterAutoMapper` instead of `AddAutoMapper`
+* New extensions were added that are more aligned with the `Autofac` syntax for registering dependencies. Please use `RegisterAutoMapper` instead of `AddAutoMapper`
 
 
 # [4.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/4.0.0) (2020-07-15)
