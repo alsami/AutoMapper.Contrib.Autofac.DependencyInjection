@@ -19,7 +19,7 @@ namespace AutoMapper.Autofac.ConsoleApp
         {
             var containerBuilder = new ContainerBuilder();
 
-            containerBuilder.AddAutoMapper(typeof(Customer).Assembly);
+            containerBuilder.RegisterAutoMapper(typeof(Customer).Assembly);
 
             var container = containerBuilder.Build();
 

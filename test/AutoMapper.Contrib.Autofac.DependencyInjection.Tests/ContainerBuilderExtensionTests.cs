@@ -16,7 +16,7 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests
             var customer = new Customer(Guid.NewGuid(), "google", "google1");
 
             var container = new ContainerBuilder()
-                .AddAutoMapper(typeof(Customer).Assembly)
+                .RegisterAutoMapper(typeof(Customer).Assembly)
                 .Build();
 
             var mapper = container.Resolve<IMapper>();
@@ -38,7 +38,7 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests
         public void ContainerBuilderExtensions_AddAutoMapperAssembliesOnly_ExpectTypesToBeRegistered()
         {
             var container = new ContainerBuilder()
-                .AddAutoMapper(typeof(Customer).Assembly)
+                .RegisterAutoMapper(typeof(Customer).Assembly)
                 .Build();
 
             Assert.True(container.IsRegistered<IEnumerable<Profile>>());

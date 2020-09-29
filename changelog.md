@@ -1,3 +1,18 @@
+# [5.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/5.0.0) (2020-09-29)
+
+## Breaking Changes
+
+* `Autofac` has been updated to version `6.0.0`. This release contains many new features but also breaking-changes. Check out this [blog-post](https://alistairevans.co.uk/2020/09/28/autofac-6-0-released/) for more information.
+
+## Deprecation notice
+
+* `AddAutoMapper` has been marked as deprecated and will be removed with version `7.0.0`.
+
+## Features
+
+* Wew extensions were added that are more aligned with the `Autofac` syntax for registering dependencies. Please use `RegisterAutoMapper` instead of `AddAutoMapper`
+
+
 # [4.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/4.0.0) (2020-07-15)
 
 ## Features

@@ -29,7 +29,7 @@ namespace AutoMapper.Autofac.WebApi
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.AddAutoMapper(typeof(Customer).Assembly);
+            builder.RegisterAutoMapper(typeof(Customer).Assembly);
         }
     }
 }
