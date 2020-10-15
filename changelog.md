@@ -1,3 +1,13 @@
+# [5.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/5.1.0) (2020-10-15)
+
+## Fixes
+
+Fix obsolete-message for legacy-extensions: [7ec0b2e789ff6b7bb4ae9aa9cdba0e5e801e86a1](https://github.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection/commit/7ec0b2e789ff6b7bb4ae9aa9cdba0e5e801e86a1). Thanks to [benmccallum](https://github.com/benmccallum)!
+
+## Features
+
+* Upgrade `AutoMapper` to version 10.1.0
+
 # [5.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/5.0.0) (2020-09-29)
 
 ## Breaking Changes
