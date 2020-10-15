@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Entities
+namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Entities
 {
     public class Customer
     {

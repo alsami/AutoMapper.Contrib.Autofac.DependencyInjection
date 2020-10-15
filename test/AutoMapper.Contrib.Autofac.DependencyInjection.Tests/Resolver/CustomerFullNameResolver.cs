@@ -1,7 +1,7 @@
-﻿using AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Dtos;
-using AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Entities;
+﻿using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Dtos;
+using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Entities;
 
-namespace AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Resolver
+namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Resolver
 {
     public class CustomerFullNameResolver : IValueResolver<Customer, CustomerDto, string>
     {

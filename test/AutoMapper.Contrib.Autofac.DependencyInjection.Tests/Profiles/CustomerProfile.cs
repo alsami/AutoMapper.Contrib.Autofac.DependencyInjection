@@ -1,8 +1,8 @@
-﻿using AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Dtos;
-using AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Entities;
-using AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Resolver;
+﻿using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Dtos;
+using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Entities;
+using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Resolver;
 
-namespace AutoMapper.Contrib.Autofac.DependencyInjection.TestInfrastructure.Profiles
+namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Profiles
 {
     public class CustomerProfile : Profile
     {

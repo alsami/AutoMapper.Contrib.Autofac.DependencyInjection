@@ -1,8 +1,10 @@
 # AutoMapper.Contrib.Autofac.DependencyInjection
 
+[![Build Status](https://travis-ci.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection.svg?branch=master)](https://travis-ci.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection)
+[![codecov](https://codecov.io/gh/alsami/AutoMapper.Contrib.Autofac.DependencyInjection/branch/master/graph/badge.svg)](https://codecov.io/gh/alsami/AutoMapper.Contrib.Autofac.DependencyInjection)
+
 [![NuGet](https://img.shields.io/nuget/dt/AutoMapper.Contrib.Autofac.DependencyInjection.svg)](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection) 
 [![NuGet](https://img.shields.io/nuget/vpre/AutoMapper.Contrib.Autofac.DependencyInjection.svg)](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection)
-[![Build Status](https://travis-ci.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection.svg?branch=master)](https://travis-ci.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection)
 
 This is a cross platform library, written in .netstandard 2.0, that serves as an extension for [autofac's containerbuilder](https://autofac.org/).
 It will register all necessary classes and interfaces of Jimmy Bogard's [AutoMapper](https://github.com/AutoMapper/AutoMapper) implementation to the autofac-container 
@@ -90,7 +92,7 @@ public static class Programm
 
 ```csharp
 var containerBuilder = new ContainerBuilder();
-containerBuilder.AddAutoMapper(typeof(Program).Assembly);
+containerBuilder.RegisterAutoMapper(typeof(Program).Assembly);
 
 var container = containerBuilder.Build();
 var mapperConfiguration = container.Resolve<MapperConfiguration>();
