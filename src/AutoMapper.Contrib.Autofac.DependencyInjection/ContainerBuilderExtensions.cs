@@ -9,7 +9,7 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
     public static class ContainerBuilderExtensions
     {
         private const string ObsoleteMessage =
-            "This extension method is obsolete. Please use the new extension 'RegisterMediatR' instead.";
+            "This extension method is obsolete. Please use the new extension 'RegisterAutoMapper' instead.";
         
         private static readonly Action<IMapperConfigurationExpression> FallBackExpression =
             config => { };
