@@ -8,7 +8,7 @@
 
 This is a cross platform library, written in .netstandard 2.0, that serves as an extension for [autofac's containerbuilder](https://autofac.org/).
 It will register all necessary classes and interfaces of Jimmy Bogard's [AutoMapper](https://github.com/AutoMapper/AutoMapper) implementation to the autofac-container 
-so you can use AutoMapper and object-mapping right ahread without worrying about setting up required infrastracture code.
+so you can use AutoMapper and object-mapping right ahead without worrying about setting up required infrastructure code.
 
 ## Installation
 
