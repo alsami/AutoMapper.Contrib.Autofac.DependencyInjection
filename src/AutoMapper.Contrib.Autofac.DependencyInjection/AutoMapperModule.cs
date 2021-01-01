@@ -66,7 +66,7 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
             
             var profiles = componentContext.Resolve<IEnumerable<Profile>>();
             
-            foreach (var profile in profiles.Select(profile => profile.GetType())) 
+            foreach (var profile in profiles) 
                 cfg.AddProfile(profile);
         }
     }

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Autofac;
 using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Dtos;
 using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Entities;
+using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Profiles;
 using Xunit;
 
 namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests
@@ -15,9 +17,13 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests
         {
             var customer = new Customer(Guid.NewGuid(), "google", "google1");
 
-            var container = new ContainerBuilder()
-                .RegisterAutoMapper(typeof(Customer).Assembly)
-                .Build();
+            var builder = new ContainerBuilder()
+                .RegisterAutoMapper(typeof(Customer).Assembly);
+
+            builder.RegisterType<Dependency>()
+                .AsSelf();
+
+            var container = builder.Build();
 
             var mapper = container.Resolve<IMapper>();
 
@@ -37,9 +43,13 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests
         [Fact]
         public void ContainerBuilderExtensions_AddAutoMapperAssembliesOnly_ExpectTypesToBeRegistered()
         {
-            var container = new ContainerBuilder()
-                .RegisterAutoMapper(typeof(Customer).Assembly)
-                .Build();
+            var builder = new ContainerBuilder()
+                .RegisterAutoMapper(typeof(Customer).Assembly);
+
+            builder.RegisterType<Dependency>()
+                .AsSelf();
+
+            var container = builder.Build();
 
             Assert.True(container.IsRegistered<IEnumerable<Profile>>());
             Assert.True(container.IsRegistered<MapperConfiguration>());
@@ -52,7 +62,7 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests
             var resolver = container.Resolve<IValueResolver<Customer, CustomerDto, string>>();
             var mapper = container.Resolve<IMapper>();
 
-            Assert.Single(profiles);
+            Assert.Equal(2, profiles.Count());
             Assert.NotNull(resolver);
             Assert.NotNull(mapper);
         }
