@@ -1,8 +1,16 @@
+# [5.2.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/5.2.0) (2021-01-01)
+
+## Features
+
+* Use different overload to register `AutoMapper` profiles so that profiles may contain dependencies. [(#4)](https://github.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection/issues/4)
+* Upgrade `AutoMapper` to version `10.1.1`
+* Update `Autofac` to version `6.1.0`
+
 # [5.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/5.1.0) (2020-10-15)
 
 ## Fixes
 
-Fix obsolete-message for legacy-extensions: [7ec0b2e789ff6b7bb4ae9aa9cdba0e5e801e86a1](https://github.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection/commit/7ec0b2e789ff6b7bb4ae9aa9cdba0e5e801e86a1). Thanks to [benmccallum](https://github.com/benmccallum)!
+* Fix obsolete-message for legacy-extensions: [7ec0b2e789ff6b7bb4ae9aa9cdba0e5e801e86a1](https://github.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection/commit/7ec0b2e789ff6b7bb4ae9aa9cdba0e5e801e86a1). Thanks to [benmccallum](https://github.com/benmccallum)!
 
 ## Features
 
