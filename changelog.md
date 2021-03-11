@@ -1,3 +1,9 @@
+# [5.3.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/5.3.0) (2021-03-01)
+
+## Features
+
+* Add support for `IValueConverter<,>`. Implements [issue #5](https://github.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection/issues/5).
+
 # [5.2.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/5.2.0) (2021-01-01)
 
 ## Features
