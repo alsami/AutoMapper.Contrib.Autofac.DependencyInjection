@@ -2,7 +2,7 @@ dist: bionic
 language: csharp
 solution: AutoMapper.Contrib.Autofac.DependencyInjection.sln
 mono: none
-dotnet: 5.0.101
+dotnet: 5.0.201
 
 addons:
   apt:

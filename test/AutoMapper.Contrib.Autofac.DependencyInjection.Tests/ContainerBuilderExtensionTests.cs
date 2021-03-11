@@ -56,14 +56,17 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests
             Assert.True(container.IsRegistered<IConfigurationProvider>());
             Assert.True(container.IsRegistered<IMapper>());
             Assert.True(container.IsRegistered<IValueResolver<Customer, CustomerDto, string>>());
+            Assert.True(container.IsRegistered<IValueConverter<string, string>>());
             Assert.True(container.IsRegistered<ITypeConverter<CustomerDto, Customer>>());
 
             var profiles = container.Resolve<IEnumerable<Profile>>();
             var resolver = container.Resolve<IValueResolver<Customer, CustomerDto, string>>();
+            var converter = container.Resolve<IValueConverter<string, string>>();
             var mapper = container.Resolve<IMapper>();
 
             Assert.Equal(2, profiles.Count());
             Assert.NotNull(resolver);
+            Assert.NotNull(converter);
             Assert.NotNull(mapper);
         }
     }

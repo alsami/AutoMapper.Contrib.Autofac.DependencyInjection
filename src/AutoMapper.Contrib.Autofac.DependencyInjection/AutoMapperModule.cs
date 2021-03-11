@@ -41,6 +41,7 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
             var openTypes = new[]
             {
                 typeof(IValueResolver<,,>),
+                typeof(IValueConverter<,>),
                 typeof(IMemberValueResolver<,,,>),
                 typeof(ITypeConverter<,>),
                 typeof(IMappingAction<,>)
