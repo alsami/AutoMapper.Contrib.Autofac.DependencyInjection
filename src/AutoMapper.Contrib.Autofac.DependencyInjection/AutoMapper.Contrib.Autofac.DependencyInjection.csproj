@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>8.0</LangVersion>
-    <Version>5.3.0</Version>
-    <FileVersion>5.3.0.0</FileVersion>
+    <LangVersion>9.0</LangVersion>
+    <Version>5.4.0</Version>
+    <FileVersion>5.4.0.0</FileVersion>
     <Copyright>2021©Sami Al Khatib</Copyright>
     <Authors>Sami Al Khatib</Authors>
     <Title>AutoMapper-Autofac-Extension</Title>
@@ -15,9 +15,10 @@
     <PackageIconUrl>https://s3.amazonaws.com/automapper/icon.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection.git</RepositoryUrl>
+    <TreatWarningAsError>true</TreatWarningAsError>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="Autofac" Version="6.2.0" />
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
