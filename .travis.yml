@@ -2,7 +2,12 @@ dist: bionic
 language: csharp
 solution: AutoMapper.Contrib.Autofac.DependencyInjection.sln
 mono: none
-dotnet: 5.0.202
+dotnet: 6.0.100
+
+env:
+  global:
+    - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
+    - DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 addons:
   apt:
@@ -26,5 +31,5 @@ jobs:
     - stage: publish
       name: publish-packages
       if: tag IS present
-      script: ./publish-packages.sh "$NUGET_SOURCE" "$CLEANCODELABS_NUGET_KEY" "$TRAVIS_TAG"
+      script: ./publish-packages.sh "$NUGET_SOURCE" "$NUGET_KEY" "$TRAVIS_TAG"
 

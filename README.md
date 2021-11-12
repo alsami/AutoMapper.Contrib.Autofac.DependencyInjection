@@ -1,7 +1,7 @@
 # AutoMapper.Contrib.Autofac.DependencyInjection
 
-[![Build Status](https://travis-ci.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection.svg?branch=master)](https://travis-ci.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection)
-[![codecov](https://codecov.io/gh/alsami/AutoMapper.Contrib.Autofac.DependencyInjection/branch/master/graph/badge.svg)](https://codecov.io/gh/alsami/AutoMapper.Contrib.Autofac.DependencyInjection)
+[![Build Status](https://travis-ci.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection.svg?branch=main)](https://travis-ci.com/alsami/AutoMapper.Contrib.Autofac.DependencyInjection)
+[![codecov](https://codecov.io/gh/alsami/AutoMapper.Contrib.Autofac.DependencyInjection/branch/main/graph/badge.svg)](https://codecov.io/gh/alsami/AutoMapper.Contrib.Autofac.DependencyInjection)
 
 [![NuGet](https://img.shields.io/nuget/dt/AutoMapper.Contrib.Autofac.DependencyInjection.svg)](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection) 
 [![NuGet](https://img.shields.io/nuget/vpre/AutoMapper.Contrib.Autofac.DependencyInjection.svg)](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection)
