@@ -11,13 +11,16 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
     {
         private readonly Assembly[] assembliesToScan;
         private readonly Action<IMapperConfigurationExpression> mappingConfigurationAction;
+        private readonly bool propertiesAutowired;
 
         public AutoMapperModule(Assembly[] assembliesToScan,
-            Action<IMapperConfigurationExpression> mappingConfigurationAction)
+            Action<IMapperConfigurationExpression> mappingConfigurationAction,
+            bool propertiesAutowired)
         {
             this.assembliesToScan = assembliesToScan ?? throw new ArgumentNullException(nameof(assembliesToScan));
             this.mappingConfigurationAction = mappingConfigurationAction ??
                                               throw new ArgumentNullException(nameof(mappingConfigurationAction));
+            this.propertiesAutowired = propertiesAutowired;
         }
 
         protected override void Load(ContainerBuilder builder)
@@ -27,10 +30,13 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
                 .Distinct()
                 .ToArray();
             
-            builder.RegisterAssemblyTypes(distinctAssemblies)
+            var profiles = builder.RegisterAssemblyTypes(distinctAssemblies)
                 .AssignableTo(typeof(Profile))
                 .As<Profile>()
                 .SingleInstance();
+
+            if (propertiesAutowired)
+                profiles.PropertiesAutowired();
 
             builder
                 .Register(componentContext => new MapperConfiguration(config => this.ConfigurationAction(config, componentContext)))
@@ -48,10 +54,15 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
             };
 
             foreach (var openType in openTypes)
-                builder.RegisterAssemblyTypes(distinctAssemblies)
+            {
+                var openTypeBuilder = builder.RegisterAssemblyTypes(distinctAssemblies)
                     .AsClosedTypesOf(openType)
                     .AsImplementedInterfaces()
                     .InstancePerDependency();
+
+                if (propertiesAutowired)
+                    openTypeBuilder.PropertiesAutowired();
+            }
 
             builder
                 .Register(componentContext => componentContext

@@ -40,36 +40,36 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection
             return RegisterAddAutoMapperInternal(builder, new[] {assembly}, configExpression);
         }
         
-        public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder, params Assembly[] assemblies)
+        public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder, bool propertiesAutowired = false, params Assembly[] assemblies)
         {
-            return RegisterAddAutoMapperInternal(builder, assemblies);
+            return RegisterAddAutoMapperInternal(builder, assemblies, propertiesAutowired: propertiesAutowired);
         }
 
-        public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder, Assembly assembly)
+        public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder, Assembly assembly, bool propertiesAutowired = false)
         {
-            return RegisterAddAutoMapperInternal(builder, new[] {assembly});
-        }
-
-        public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder,
-            Action<IMapperConfigurationExpression> configExpression, params Assembly[] assemblies)
-        {
-            return RegisterAddAutoMapperInternal(builder, assemblies, configExpression);
+            return RegisterAddAutoMapperInternal(builder, new[] {assembly}, propertiesAutowired: propertiesAutowired);
         }
 
         public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder,
-            Action<IMapperConfigurationExpression> configExpression, Assembly assembly)
+            Action<IMapperConfigurationExpression> configExpression, bool propertiesAutowired = false, params Assembly[] assemblies)
         {
-            return RegisterAddAutoMapperInternal(builder, new[] {assembly}, configExpression);
+            return RegisterAddAutoMapperInternal(builder, assemblies, configExpression, propertiesAutowired);
+        }
+
+        public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder,
+            Action<IMapperConfigurationExpression> configExpression, Assembly assembly, bool propertiesAutowired = false)
+        {
+            return RegisterAddAutoMapperInternal(builder, new[] {assembly}, configExpression, propertiesAutowired);
         }
 
         private static ContainerBuilder RegisterAddAutoMapperInternal(ContainerBuilder builder,
-            IEnumerable<Assembly> assemblies, Action<IMapperConfigurationExpression> configExpression = null)
+            IEnumerable<Assembly> assemblies, Action<IMapperConfigurationExpression> configExpression = null, bool propertiesAutowired = false)
         {
             var usedAssemblies = assemblies as Assembly[] ?? assemblies.ToArray();
 
             var usedConfigExpression = configExpression ?? FallBackExpression;
 
-            builder.RegisterModule(new AutoMapperModule(usedAssemblies, usedConfigExpression));
+            builder.RegisterModule(new AutoMapperModule(usedAssemblies, usedConfigExpression, propertiesAutowired));
 
             return builder;
         }
