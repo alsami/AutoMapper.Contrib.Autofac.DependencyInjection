@@ -73,7 +73,32 @@ public static class Programm
 		var containerBuilder = new ContainerBuilder();
 		// here you have to pass in the assembly (or assemblies) containing AutoMapper types
 		// stuff like profiles, resolvers and type-converters will be added by this function
-		containerBuilder.AddAutoMapper(typeof(Program).Assembly);
+		containerBuilder.RegisterAutoMapper(typeof(Program).Assembly);
+		
+		var container = containerBuilder.Build();
+
+		var mapper = container.Resolve<IMapper>();
+
+		var customer = new Customer(Guid.NewGuid(), "Google");
+
+		var customerDto = mapper.Map<CustomerDto>(customer);
+	}
+}
+```
+
+### Support for Property Injection
+
+You can set `propertiesAutowired` to true to enable property based injection, just modify the prior example like so:
+
+```csharp
+public static class Programm
+{
+	public static void Main(string args[])
+	{
+		var containerBuilder = new ContainerBuilder();
+		
+		// Update this line with the setting:
+		containerBuilder.RegisterAutoMapper(typeof(Program).Assembly, propertiesAutowired: true);
 		
 		var container = containerBuilder.Build();
 

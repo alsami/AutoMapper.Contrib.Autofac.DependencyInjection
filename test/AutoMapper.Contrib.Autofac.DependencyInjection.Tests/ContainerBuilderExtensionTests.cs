@@ -64,10 +64,91 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests
             var converter = container.Resolve<IValueConverter<string, string>>();
             var mapper = container.Resolve<IMapper>();
 
-            Assert.Equal(2, profiles.Count());
+            Assert.Equal(3, profiles.Count());
             Assert.NotNull(resolver);
             Assert.NotNull(converter);
             Assert.NotNull(mapper);
+        }
+
+        [Fact]
+        public void ContainerBuilderExtension_PropertiesAutoWiredNotSet_ExpectExceptions()
+        {
+            // Arrange...
+            var name = new Name() { FirstName = "Maximilian", LastName = "Smith" };
+
+            var builder = new ContainerBuilder()
+                .RegisterAutoMapper(typeof(Name).Assembly);
+
+            builder.RegisterType<Dependency>()
+                .AsSelf();
+            
+            // Simulate loading from appsettings.json:
+            builder.RegisterInstance(new TestConfiguration() { FirstNameCharacterLimit = 12 }).AsSelf();
+
+            var container = builder.Build();
+
+            var mapper = container.Resolve<IMapper>();
+            
+            // Act...
+            var ex = Record.Exception(() => mapper.Map<NameDto>(name));
+            
+            // Assert...
+            Assert.NotNull(ex);
+            Assert.Equal(ex.GetType(), typeof(AutoMapperMappingException));
+        }
+        
+        [Fact]
+        public void ContainerBuilderExtension_PropertiesAutoWiredSet_NoExceptionsExpected()
+        {
+            // Arrange...
+            var name = new Name() { FirstName = "Maximilian", LastName = "Smith" };
+
+            var builder = new ContainerBuilder()
+                .RegisterAutoMapper(typeof(Name).Assembly, propertiesAutowired: true);
+
+            builder.RegisterType<Dependency>()
+                .AsSelf();
+            
+            // Simulate loading from appsettings.json:
+            builder.RegisterInstance(new TestConfiguration() { FirstNameCharacterLimit = 12 }).AsSelf();
+
+            var container = builder.Build();
+
+            var mapper = container.Resolve<IMapper>();
+            
+            // Act...
+            var exception = Record.Exception(() => mapper.Map<NameDto>(name));
+            
+            // Assert...
+            Assert.Null(exception);
+        }
+        
+        [Fact]
+        public void ContainerBuilderExtension_PropertiesAutowired_CustomValueResolverWithPropertyDependencyIsResolved()
+        {
+            // Arrange...
+            var name = new Name() { FirstName = "Maximilian", LastName = "Smith" };
+
+            var builder = new ContainerBuilder()
+                .RegisterAutoMapper(typeof(Name).Assembly, propertiesAutowired: true);
+
+            builder.RegisterType<Dependency>()
+                .AsSelf();
+            
+            // Simulate loading from appsettings.json:
+            var configuration = new TestConfiguration() { FirstNameCharacterLimit = 12 };
+            builder.RegisterInstance(configuration).AsSelf();
+
+            var container = builder.Build();
+
+            var mapper = container.Resolve<IMapper>();
+            
+            // Act...
+            var result = mapper.Map<NameDto>(name);
+            
+            // Assert...
+            Assert.True(result.IsValidFirstName);
+            Assert.True(result.FirstName.Length < configuration.FirstNameCharacterLimit);
         }
     }
 }
