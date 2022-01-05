@@ -1,3 +1,9 @@
+# [5.6.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/5.6.0) (2022-01-05)
+
+## Features
+
+* Add supported for property-injection. Thanks to [matthewrhoden1](https://github.com/matthewrhoden1)!
+
 # [5.5.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/5.5.0) (2021-11-12)
 
 ## Features

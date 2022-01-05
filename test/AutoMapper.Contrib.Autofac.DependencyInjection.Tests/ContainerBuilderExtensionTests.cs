@@ -94,7 +94,7 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests
             
             // Assert...
             Assert.NotNull(ex);
-            Assert.Equal(ex.GetType(), typeof(AutoMapperMappingException));
+            Assert.Equal(typeof(AutoMapperMappingException), ex.GetType());
         }
         
         [Fact]
