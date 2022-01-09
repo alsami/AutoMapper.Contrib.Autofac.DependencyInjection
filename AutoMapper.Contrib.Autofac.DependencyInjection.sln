@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{11A83071-C
 		README.md = README.md
 		global.json = global.json
 		Directory.Build.props = Directory.Build.props
+		icon.png = icon.png
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoMapper.Contrib.Autofac.DependencyInjection", "src\AutoMapper.Contrib.Autofac.DependencyInjection\AutoMapper.Contrib.Autofac.DependencyInjection.csproj", "{97B8F460-4AB3-4E6D-99A0-33ADC9E5578A}"
