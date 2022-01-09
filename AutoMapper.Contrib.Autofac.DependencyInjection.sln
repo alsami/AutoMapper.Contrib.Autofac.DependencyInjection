@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{11A83071-C2B6-4625-AA44-60F23A20C11B}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		.travis.yml = .travis.yml
 		changelog.md = changelog.md
 		licence.md = licence.md
 		publish-packages.sh = publish-packages.sh
@@ -31,6 +30,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMapper.Autofac.ConsoleApp", "samples\AutoMapper.Autofac.ConsoleApp\AutoMapper.Autofac.ConsoleApp.csproj", "{5EADD7CB-210A-4169-A0DF-C4AE7EDBE731}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMapper.Autofac.Shared", "samples\AutoMapper.Autofac.Shared\AutoMapper.Autofac.Shared.csproj", "{518E0DB7-8C83-41C6-A020-5AF0DFF05F19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{717509EE-6F82-4DCD-9110-B5EEFFDBA678}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{1393ACB8-9707-446C-B6FD-4C2513B43592}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\push.yml = .github\workflows\push.yml
+		.github\workflows\tag.yml = .github\workflows\tag.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +75,7 @@ Global
 		{67EAE13C-79FF-4E0F-8128-D69322CD2E34} = {243D0BEA-EA8B-4D7E-B645-BE17B9763896}
 		{5EADD7CB-210A-4169-A0DF-C4AE7EDBE731} = {243D0BEA-EA8B-4D7E-B645-BE17B9763896}
 		{518E0DB7-8C83-41C6-A020-5AF0DFF05F19} = {243D0BEA-EA8B-4D7E-B645-BE17B9763896}
+		{1393ACB8-9707-446C-B6FD-4C2513B43592} = {717509EE-6F82-4DCD-9110-B5EEFFDBA678}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C58D8048-52B6-44D8-AF85-8759A9ED42FA}
