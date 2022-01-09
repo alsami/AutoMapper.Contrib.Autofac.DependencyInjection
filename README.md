@@ -66,7 +66,7 @@ public class CustomerProfile : Profile
 	}
 }
 
-public static class Programm
+public static class Program
 {
 	public static void Main(string args[])
 	{
@@ -91,7 +91,7 @@ public static class Programm
 You can set `propertiesAutowired` to true to enable property based injection, just modify the prior example like so:
 
 ```csharp
-public static class Programm
+public static class Program
 {
 	public static void Main(string args[])
 	{
@@ -113,7 +113,7 @@ public static class Programm
 
 ### Validating your configuration
 
-`AutoMapper` allows the user to validate their mappings. You can do it like this:
+`AutoMapper` allows the user to validate their mappings. **This should only be done within a test project, since it's time-consuming**
 
 ```csharp
 var containerBuilder = new ContainerBuilder();
