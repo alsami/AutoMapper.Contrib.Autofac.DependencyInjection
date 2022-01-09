@@ -6,30 +6,29 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace AutoMapper.Autofac.WebApi
+namespace AutoMapper.Autofac.WebApi;
+
+public class Startup
 {
-    public class Startup
+    public void ConfigureServices(IServiceCollection services)
     {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers()
-                .AddNewtonsoftJson();
-        }
+        services.AddControllers()
+            .AddNewtonsoftJson();
+    }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
-            app.UseHttpsRedirection();
+        app.UseHttpsRedirection();
 
-            app.UseRouting();
+        app.UseRouting();
 
-            app.UseEndpoints(endpoints => endpoints.MapControllers());
-        }
+        app.UseEndpoints(endpoints => endpoints.MapControllers());
+    }
 
-        public void ConfigureContainer(ContainerBuilder builder)
-        {
-            builder.RegisterAutoMapper(typeof(Customer).Assembly);
-        }
+    public void ConfigureContainer(ContainerBuilder builder)
+    {
+        builder.RegisterAutoMapper(typeof(Customer).Assembly);
     }
 }

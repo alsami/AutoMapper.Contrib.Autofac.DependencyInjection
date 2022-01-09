@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Dtos
+namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Dtos;
+
+public class CustomerDto
 {
-    public class CustomerDto
-    {
-        public Guid Id { get; set; }
+    public Guid Id { get; set; }
 
-        public string Name { get; set; }
+    public string Name { get; set; }
 
-        public string FirstName { get; set; }
+    public string FirstName { get; set; }
 
-        public string FullName { get; set; }
-    }
+    public string FullName { get; set; }
 }
