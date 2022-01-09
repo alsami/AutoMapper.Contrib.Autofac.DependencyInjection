@@ -1,3 +1,13 @@
+# [6.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/6.0.0) (2022-01-09)
+
+## Breaking changes
+
+* `AutoMapper` 11.0.0 dropped support for `netstandard2.0`. No only `netstandard2.1` is supported
+
+## Features
+
+* Add support for `AutoMapper` 11.0.0
+
 # [5.6.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/5.6.0) (2022-01-05)
 
 ## Features
@@ -48,7 +58,7 @@
 
 ## Deprecation notice
 
-* `AddAutoMapper` has been marked as deprecated and will be removed with version `7.0.0`.
+* `AddAutoMapper` has been marked as deprecated and will be removed with version `6.0.0`.
 
 ## Features
 

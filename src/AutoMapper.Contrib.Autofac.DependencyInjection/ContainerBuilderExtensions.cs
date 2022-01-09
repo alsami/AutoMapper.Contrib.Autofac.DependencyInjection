@@ -13,56 +13,41 @@ public static class ContainerBuilderExtensions
         
     private static readonly Action<IMapperConfigurationExpression> FallBackExpression =
         config => { };
-
-    [Obsolete(ObsoleteMessage)]
-    public static ContainerBuilder AddAutoMapper(this ContainerBuilder builder, params Assembly[] assemblies)
-    {
-        return RegisterAddAutoMapperInternal(builder, assemblies);
-    }
-
-    [Obsolete(ObsoleteMessage)]
-    public static ContainerBuilder AddAutoMapper(this ContainerBuilder builder, Assembly assembly)
-    {
-        return RegisterAddAutoMapperInternal(builder, new[] {assembly});
-    }
-
-    [Obsolete(ObsoleteMessage)]
-    public static ContainerBuilder AddAutoMapper(this ContainerBuilder builder,
-        Action<IMapperConfigurationExpression> configExpression, params Assembly[] assemblies)
-    {
-        return RegisterAddAutoMapperInternal(builder, assemblies, configExpression);
-    }
-
-    [Obsolete(ObsoleteMessage)]
-    public static ContainerBuilder AddAutoMapper(this ContainerBuilder builder,
-        Action<IMapperConfigurationExpression> configExpression, Assembly assembly)
-    {
-        return RegisterAddAutoMapperInternal(builder, new[] {assembly}, configExpression);
-    }
         
-    public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder, bool propertiesAutowired = false, params Assembly[] assemblies)
+    public static ContainerBuilder RegisterAutoMapper(
+        this ContainerBuilder builder, 
+        bool propertiesAutowired = false, 
+        params Assembly[] assemblies)
     {
-        return RegisterAddAutoMapperInternal(builder, assemblies, propertiesAutowired: propertiesAutowired);
+        return RegisterAutoMapperInternal(builder, assemblies, propertiesAutowired: propertiesAutowired);
     }
 
-    public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder, Assembly assembly, bool propertiesAutowired = false)
+    public static ContainerBuilder RegisterAutoMapper(
+        this ContainerBuilder builder, 
+        Assembly assembly, 
+        bool propertiesAutowired = false)
     {
-        return RegisterAddAutoMapperInternal(builder, new[] {assembly}, propertiesAutowired: propertiesAutowired);
+        return RegisterAutoMapperInternal(builder, new[] {assembly}, propertiesAutowired: propertiesAutowired);
     }
 
-    public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder,
-        Action<IMapperConfigurationExpression> configExpression, bool propertiesAutowired = false, params Assembly[] assemblies)
+    public static ContainerBuilder RegisterAutoMapper(
+        this ContainerBuilder builder, 
+        Action<IMapperConfigurationExpression> configExpression, 
+        bool propertiesAutowired = false, 
+        params Assembly[] assemblies)
     {
-        return RegisterAddAutoMapperInternal(builder, assemblies, configExpression, propertiesAutowired);
+        return RegisterAutoMapperInternal(builder, assemblies, configExpression, propertiesAutowired);
     }
 
-    public static ContainerBuilder RegisterAutoMapper(this ContainerBuilder builder,
-        Action<IMapperConfigurationExpression> configExpression, Assembly assembly, bool propertiesAutowired = false)
+    public static ContainerBuilder RegisterAutoMapper(
+        this ContainerBuilder builder, Action<IMapperConfigurationExpression> configExpression, 
+        Assembly assembly, 
+        bool propertiesAutowired = false)
     {
-        return RegisterAddAutoMapperInternal(builder, new[] {assembly}, configExpression, propertiesAutowired);
+        return RegisterAutoMapperInternal(builder, new[] {assembly}, configExpression, propertiesAutowired);
     }
 
-    private static ContainerBuilder RegisterAddAutoMapperInternal(ContainerBuilder builder,
+    private static ContainerBuilder RegisterAutoMapperInternal(ContainerBuilder builder,
         IEnumerable<Assembly> assemblies, Action<IMapperConfigurationExpression>? configExpression = null, bool propertiesAutowired = false)
     {
         var usedAssemblies = assemblies as Assembly[] ?? assemblies.ToArray();
