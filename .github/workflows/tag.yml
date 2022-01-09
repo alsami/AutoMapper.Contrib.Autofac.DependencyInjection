@@ -24,5 +24,5 @@ jobs:
         export TAG=${{github.ref_name}}
         export NUGET_API_URL=https://api.nuget.org/v3/index.json
         export NUGET_KEY=${{secrets.NUGET_KEY}}
-        chmod +x ./pubish-packages.sh
-        ./pubish-packages.sh
+        chmod +x ./publish-packages.sh
+        ./publish-packages.sh
