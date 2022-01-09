@@ -10,10 +10,10 @@ public class CustomerAttributeDto
 {
     public Guid Id { get; set; }
 
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
 
-    public string FirstName { get; set; }
+    public string FirstName { get; set; } = null!;
 
     [ValueResolver(typeof(CustomerFullNameResolver))]
-    public string FullName { get; set; }
+    public string FullName { get; set; } = null!;
 }

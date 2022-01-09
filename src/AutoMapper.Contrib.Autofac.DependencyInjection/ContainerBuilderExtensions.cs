@@ -63,7 +63,7 @@ public static class ContainerBuilderExtensions
     }
 
     private static ContainerBuilder RegisterAddAutoMapperInternal(ContainerBuilder builder,
-        IEnumerable<Assembly> assemblies, Action<IMapperConfigurationExpression> configExpression = null, bool propertiesAutowired = false)
+        IEnumerable<Assembly> assemblies, Action<IMapperConfigurationExpression>? configExpression = null, bool propertiesAutowired = false)
     {
         var usedAssemblies = assemblies as Assembly[] ?? assemblies.ToArray();
 
