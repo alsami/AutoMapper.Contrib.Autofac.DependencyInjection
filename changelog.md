@@ -1,3 +1,9 @@
+# [6.0.1](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/6.0.1) (2022-02-04)
+
+## Chore
+
+* Update `AutoMapper` to `11.0.1`
+
 # [6.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/6.0.0) (2022-01-09)
 
 ## Breaking changes
