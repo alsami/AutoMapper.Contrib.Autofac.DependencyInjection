@@ -1,3 +1,9 @@
+# [6.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/6.1.0) (2022-05-31)
+
+## Features
+
+* Upgrade `Autofac` to `6.4.0`
+
 # [6.0.1](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/6.0.1) (2022-02-04)
 
 ## Chore
