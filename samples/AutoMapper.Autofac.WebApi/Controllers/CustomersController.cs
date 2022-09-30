@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using AutoMapper.Autofac.Shared.Dtos;
 using AutoMapper.Autofac.Shared.Entities;
 using Microsoft.AspNetCore.Mvc;

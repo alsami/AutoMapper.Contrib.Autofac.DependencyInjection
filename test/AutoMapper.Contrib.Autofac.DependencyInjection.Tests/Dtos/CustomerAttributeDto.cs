@@ -1,4 +1,3 @@
-using System;
 using AutoMapper.Configuration.Annotations;
 using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Entities;
 using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Resolver;

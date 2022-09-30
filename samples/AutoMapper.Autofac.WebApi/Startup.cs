@@ -1,10 +1,6 @@
 using Autofac;
 using AutoMapper.Autofac.Shared.Entities;
 using AutoMapper.Contrib.Autofac.DependencyInjection;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace AutoMapper.Autofac.WebApi;
 

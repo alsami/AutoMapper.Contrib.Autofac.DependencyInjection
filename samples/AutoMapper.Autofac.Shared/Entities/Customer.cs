@@ -1,5 +1,3 @@
-using System;
-
 namespace AutoMapper.Autofac.Shared.Entities;
 
 public class Customer

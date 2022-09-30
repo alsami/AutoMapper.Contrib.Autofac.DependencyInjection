@@ -1,5 +1,3 @@
-using System;
-
 namespace AutoMapper.Autofac.Shared.Dtos;
 
 public class CustomerDto

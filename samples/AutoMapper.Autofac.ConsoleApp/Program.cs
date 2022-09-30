@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Autofac;
+﻿using Autofac;
 using AutoMapper.Autofac.Shared.Dtos;
 using AutoMapper.Autofac.Shared.Entities;
 using AutoMapper.Contrib.Autofac.DependencyInjection;

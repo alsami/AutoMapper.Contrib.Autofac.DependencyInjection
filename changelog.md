@@ -1,3 +1,9 @@
+# [7.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/7.0.0) (2022-09-30)
+
+## Features
+
+* Upgrade `AutoMapper` to `12.0.0`. For more details, please see the release notes of [AutoMapper](https://github.com/AutoMapper/AutoMapper/releases/tag/v12.0.0).
+
 # [6.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/6.1.0) (2022-05-31)
 
 ## Features

@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Autofac;
 using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Dtos;
 using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Entities;

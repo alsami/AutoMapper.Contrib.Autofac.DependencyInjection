@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Dtos;
+﻿namespace AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Dtos;
 
 public class CustomerDto
 {

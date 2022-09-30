@@ -2,7 +2,7 @@
     <PropertyGroup>
         <LangVersion>10</LangVersion>
         <Nullable>enable</Nullable>
-        <ImplicitUsings>disable</ImplicitUsings>
+        <ImplicitUsings>enable</ImplicitUsings>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 </Project>
