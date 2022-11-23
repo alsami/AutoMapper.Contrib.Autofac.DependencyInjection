@@ -5,12 +5,10 @@ namespace AutoMapper.Contrib.Autofac.DependencyInjection;
 
 public static class ContainerBuilderExtensions
 {
-    private const string ObsoleteMessage =
-        "This extension method is obsolete. Please use the new extension 'RegisterAutoMapper' instead.";
-        
     private static readonly Action<IMapperConfigurationExpression> FallBackExpression =
-        config => { };
+        _ => { };
         
+    // ReSharper disable once UnusedMember.Global
     public static ContainerBuilder RegisterAutoMapper(
         this ContainerBuilder builder, 
         bool propertiesAutowired = false, 
@@ -27,6 +25,7 @@ public static class ContainerBuilderExtensions
         return RegisterAutoMapperInternal(builder, new[] {assembly}, propertiesAutowired: propertiesAutowired);
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static ContainerBuilder RegisterAutoMapper(
         this ContainerBuilder builder, 
         Action<IMapperConfigurationExpression> configExpression, 
@@ -36,6 +35,7 @@ public static class ContainerBuilderExtensions
         return RegisterAutoMapperInternal(builder, assemblies, configExpression, propertiesAutowired);
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static ContainerBuilder RegisterAutoMapper(
         this ContainerBuilder builder, Action<IMapperConfigurationExpression> configExpression, 
         Assembly assembly, 
