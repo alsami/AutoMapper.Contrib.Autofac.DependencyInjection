@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>7.1.0</Version>
+    <Version>7.2.0-alpha.0</Version>
     <FileVersion>7.1.0.0</FileVersion>
     <Copyright>2022©Sami Al Khatib</Copyright>
     <Authors>Sami Al Khatib</Authors>

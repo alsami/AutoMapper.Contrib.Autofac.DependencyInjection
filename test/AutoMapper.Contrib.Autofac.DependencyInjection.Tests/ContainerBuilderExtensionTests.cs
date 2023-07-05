@@ -1,4 +1,5 @@
 using Autofac;
+using AutoMapper.Contrib.Autofac.DependencyInjection.SecondAssembly;
 using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Dtos;
 using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Entities;
 using AutoMapper.Contrib.Autofac.DependencyInjection.Tests.Profiles;
@@ -146,5 +147,45 @@ public class ContainerBuilderExtensionTests
         // Assert...
         Assert.True(result.IsValidFirstName);
         Assert.True(result.FirstName.Length < configuration.FirstNameCharacterLimit);
+    }
+
+    [Fact]
+    public void ContainerBuilderExtensions_CallRegisterAutoMapperTwice_OnlyNewStuffAddedOnSecondCall()
+    {
+        var builder = new ContainerBuilder()
+            .RegisterAutoMapper(typeof(Customer).Assembly)
+            .RegisterAutoMapper(typeof(SecondAssemblyProfile).Assembly);
+
+        builder.RegisterType<Dependency>()
+            .AsSelf();
+
+        var container = builder.Build();
+
+        Assert.True(container.IsRegistered<IEnumerable<Profile>>());
+        Assert.True(container.IsRegistered<MapperConfiguration>());
+        Assert.True(container.IsRegistered<IConfigurationProvider>());
+        Assert.True(container.IsRegistered<IMapper>());
+        Assert.True(container.IsRegistered<IValueResolver<Customer, CustomerDto, string>>());
+        Assert.True(container.IsRegistered<IValueConverter<string, string>>());
+        Assert.True(container.IsRegistered<ITypeConverter<CustomerDto, Customer>>());
+
+        var profiles = container.Resolve<IEnumerable<Profile>>();
+        var resolver = container.Resolve<IValueResolver<Customer, CustomerDto, string>>();
+        var converter = container.Resolve<IValueConverter<string, string>>();
+        var mappers = container.Resolve<IEnumerable<IMapper>>().ToArray();
+        var configurationProvider = container.Resolve<IEnumerable<IConfigurationProvider>>().ToArray();
+        var mapperConfigurationExpressions = container.Resolve<IEnumerable<MapperConfigurationExpression>>().ToArray();
+
+        Assert.Single(mappers);
+        Assert.Single(configurationProvider);
+        Assert.Single(mapperConfigurationExpressions);
+        Assert.Equal(4, profiles.Count());
+        Assert.NotNull(resolver);
+        Assert.NotNull(converter);
+
+        var mapper = mappers.Single();
+        var src = new ObjectSource { Id = "1" };
+        var dest = mapper.Map<ObjectDestination>(src);
+        Assert.Equal(src.Id, dest.Id);
     }
 }
