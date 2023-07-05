@@ -10,7 +10,10 @@ internal class AutoMapperModule : Module
     private readonly Action<IMapperConfigurationExpression> mappingConfigurationAction;
     private readonly bool propertiesAutowired;
 
-    public AutoMapperModule(Assembly[] assembliesToScan,
+    private static readonly MapperConfigurationExpression MapperConfigurationExpression = new();
+
+    public AutoMapperModule(
+        Assembly[] assembliesToScan,
         Action<IMapperConfigurationExpression> mappingConfigurationAction,
         bool propertiesAutowired)
     {
@@ -27,18 +30,51 @@ internal class AutoMapperModule : Module
             .Distinct()
             .ToArray();
             
-        var profiles = builder.RegisterAssemblyTypes(distinctAssemblies)
+        var profiles = builder
+            .RegisterAssemblyTypes(distinctAssemblies)
             .AssignableTo(typeof(Profile))
             .As<Profile>()
             .SingleInstance();
 
         if (propertiesAutowired)
+        {
             profiles.PropertiesAutowired();
+        }
 
         builder
-            .Register(componentContext => new MapperConfiguration(config => this.ConfigurationAction(config, componentContext)))
+            .RegisterType<MapperConfigurationExpression>()
+            .AsSelf()
+            .IfNotRegistered(typeof(MapperConfigurationExpression))
+            .SingleInstance();
+
+        builder
+            .Register(componentContext => new MapperConfiguration(componentContext.Resolve<MapperConfigurationExpression>()))
+            .AsSelf()
+            .As<IConfigurationProvider>()
+            .IfNotRegistered(typeof(MapperConfigurationExpression))
+            .SingleInstance();
+
+        builder
+            .Register(componentContext =>
+            {
+                var expression = componentContext.Resolve<MapperConfigurationExpression>();
+                this.ConfigurationAction(expression, componentContext);
+                return new MapperConfigurationExpressionAdapter(expression);
+            })
+            .AsSelf()
+            .InstancePerDependency();
+
+
+        builder
+            .Register(componentContext =>
+            {
+                var adapter = componentContext.Resolve<MapperConfigurationExpressionAdapter>();
+
+                return new MapperConfiguration(adapter.MapperConfigurationExpression);
+            })
             .As<IConfigurationProvider>()
             .AsSelf()
+            .IfNotRegistered(typeof(IConfigurationProvider))
             .SingleInstance();
 
         var openTypes = new[]
@@ -58,7 +94,9 @@ internal class AutoMapperModule : Module
                 .InstancePerDependency();
 
             if (propertiesAutowired)
+            {
                 openTypeBuilder.PropertiesAutowired();
+            }
         }
 
         builder
@@ -66,6 +104,7 @@ internal class AutoMapperModule : Module
                 .Resolve<MapperConfiguration>()
                 .CreateMapper(componentContext.Resolve<IComponentContext>().Resolve))
             .As<IMapper>()
+            .IfNotRegistered(typeof(IMapper))
             .InstancePerLifetimeScope();
     }
 
@@ -74,8 +113,10 @@ internal class AutoMapperModule : Module
         this.mappingConfigurationAction.Invoke(cfg);
             
         var profiles = componentContext.Resolve<IEnumerable<Profile>>();
-            
-        foreach (var profile in profiles) 
+
+        foreach (var profile in profiles)
+        {
             cfg.AddProfile(profile);
+        }
     }
 }
