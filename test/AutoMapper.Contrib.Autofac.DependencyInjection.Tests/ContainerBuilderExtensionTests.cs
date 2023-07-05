@@ -187,5 +187,17 @@ public class ContainerBuilderExtensionTests
         var src = new ObjectSource { Id = "1" };
         var dest = mapper.Map<ObjectDestination>(src);
         Assert.Equal(src.Id, dest.Id);
+
+        var customer = new Customer(Guid.NewGuid(), "google", "google1");
+        var customerDto = mapper.Map<CustomerDto>(customer);
+        var reverseMappedCustomer = mapper.Map<Customer>(customerDto);
+        Assert.Equal(customer.Id, reverseMappedCustomer.Id);
+        Assert.Equal(customer.FirstName, reverseMappedCustomer.FirstName);
+        Assert.Equal(customer.Name, reverseMappedCustomer.Name);
+
+        Assert.Equal(customer.Id, customerDto.Id);
+        Assert.Equal(customer.FirstName, customerDto.FirstName);
+        Assert.Equal(customer.Name, customerDto.Name);
+        Assert.Equal($"{customer.FirstName} {customer.Name}", customerDto.FullName);
     }
 }
