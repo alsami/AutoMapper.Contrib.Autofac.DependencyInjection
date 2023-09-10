@@ -1,3 +1,10 @@
+# [7.2.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/7.2.0) (2023-09-10)
+
+## Features
+
+* Allow calling `RegisterAutoMapper` multiple times. Note that this is not compatible when using the official integration and this project together!
+* Upgrade `Autofac` to `7.1.0`
+
 # [7.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/7.1.0) (2022-11-23)
 
 ## Features
