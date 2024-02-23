@@ -1,3 +1,10 @@
+# [8.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/8.0.0) (2024-02-23)
+
+## Breaking changes
+
+* Update `AutoMapper` to `13.0.1` and target framework to `NET6.0` as required by it now
+* Update `Autofac` to `8.0.0`
+
 # [7.2.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/7.2.0) (2023-09-10)
 
 ## Features
