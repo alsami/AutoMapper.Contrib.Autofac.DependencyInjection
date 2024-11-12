@@ -1,3 +1,9 @@
+# [8.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/8.1.0) (2024-11-12)
+
+## Features
+
+* Update `Autofac` to `8.1.1`
+
 # [8.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/8.0.0) (2024-02-23)
 
 ## Breaking changes
