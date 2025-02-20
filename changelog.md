@@ -1,3 +1,10 @@
+# [9.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/9.0.0) (2025-02-20)
+
+## Features
+
+* Update `Autofac` to `8.2.0`
+* Update `AutoMapper` to `14.0.0` -> this change is a small breaking change since `AutoMapper` now requires a minimum of `.NET 8.0`
+
 # [8.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/8.1.0) (2024-11-12)
 
 ## Features
