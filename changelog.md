@@ -1,3 +1,14 @@
+# [9.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/9.1.0) (2025-08-19)
+
+## Features
+
+* Update `Autofac` to `8.4.0`
+* Update `AutoMapper` to `15.0.1`
+
+### Notes
+
+* `AutoMapper` starting from version `15.0.1` requires a license. You can read about it [here](https://github.com/LuckyPennySoftware/AutoMapper/releases/tag/v15.0.0). The code still works without a license and the license can be passed to the mapping expression.
+
 # [9.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/9.0.0) (2025-02-20)
 
 ## Features

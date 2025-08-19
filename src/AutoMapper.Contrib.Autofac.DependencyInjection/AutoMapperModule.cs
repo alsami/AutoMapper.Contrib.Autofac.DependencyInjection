@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
 using Autofac;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Module = Autofac.Module;
 
 namespace AutoMapper.Contrib.Autofac.DependencyInjection;
@@ -48,7 +50,9 @@ internal class AutoMapperModule : Module
             .SingleInstance();
 
         builder
-            .Register(componentContext => new MapperConfiguration(componentContext.Resolve<MapperConfigurationExpression>()))
+            .Register(componentContext => new MapperConfiguration(
+                componentContext.Resolve<MapperConfigurationExpression>(), 
+                componentContext.ResolveOptional<ILoggerFactory>() ?? new NullLoggerFactory()))
             .AsSelf()
             .As<IConfigurationProvider>()
             .IfNotRegistered(typeof(MapperConfigurationExpression))
@@ -69,8 +73,11 @@ internal class AutoMapperModule : Module
             .Register(componentContext =>
             {
                 var adapter = componentContext.Resolve<MapperConfigurationExpressionAdapter>();
+                var loggerFactory = componentContext.ResolveOptional<ILoggerFactory>() ?? new NullLoggerFactory();
 
-                return new MapperConfiguration(adapter.MapperConfigurationExpression);
+                return new MapperConfiguration(
+                    adapter.MapperConfigurationExpression,
+                    loggerFactory);
             })
             .As<IConfigurationProvider>()
             .AsSelf()
@@ -108,7 +115,7 @@ internal class AutoMapperModule : Module
             .InstancePerLifetimeScope();
     }
 
-    private void ConfigurationAction(IMapperConfigurationExpression cfg, IComponentContext componentContext)
+    private void ConfigurationAction(MapperConfigurationExpression cfg, IComponentContext componentContext)
     {
         this.mappingConfigurationAction.Invoke(cfg);
             

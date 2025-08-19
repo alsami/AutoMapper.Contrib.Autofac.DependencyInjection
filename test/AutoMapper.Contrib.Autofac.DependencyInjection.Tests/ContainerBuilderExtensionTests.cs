@@ -16,7 +16,9 @@ public class ContainerBuilderExtensionTests
         var customer = new Customer(Guid.NewGuid(), "google", "google1");
 
         var builder = new ContainerBuilder()
-            .RegisterAutoMapper(typeof(Customer).Assembly);
+            .RegisterAutoMapper(
+                options => options.LicenseKey = "mylic", 
+                typeof(Customer).Assembly);
 
         builder.RegisterType<Dependency>()
             .AsSelf();
