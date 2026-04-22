@@ -22,7 +22,7 @@ public static class ContainerBuilderExtensions
         Assembly assembly, 
         bool propertiesAutowired = false)
     {
-        return RegisterAutoMapperInternal(builder, new[] {assembly}, propertiesAutowired: propertiesAutowired);
+        return RegisterAutoMapperInternal(builder, [assembly], propertiesAutowired: propertiesAutowired);
     }
 
     // ReSharper disable once UnusedMember.Global
@@ -41,7 +41,7 @@ public static class ContainerBuilderExtensions
         Assembly assembly, 
         bool propertiesAutowired = false)
     {
-        return RegisterAutoMapperInternal(builder, new[] {assembly}, configExpression, propertiesAutowired);
+        return RegisterAutoMapperInternal(builder, [assembly], configExpression, propertiesAutowired);
     }
 
     private static ContainerBuilder RegisterAutoMapperInternal(ContainerBuilder builder,
