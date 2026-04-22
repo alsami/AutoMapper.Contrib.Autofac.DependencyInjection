@@ -1,3 +1,11 @@
+# [11.0.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/11.0.0) (2026-04-22)
+
+## Features
+
+* Update `Autofac` to `9.1.0`
+* Update `AutoMapper` to `16.1.1`
+* Change lib target framework to require `netstandard2.0` 
+
 # [9.1.0](https://www.nuget.org/packages/AutoMapper.Contrib.Autofac.DependencyInjection/9.1.0) (2025-08-19)
 
 ## Features
